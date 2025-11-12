@@ -26,13 +26,20 @@ def upload():
         return jsonify(ok=False, error="No selected file"), 40
     #Continue Code here
     try:
-        
+
     except Exception as e:
         return jsonify(ok=False, error=str(e)), 500
 
 @app.get("/api/catalog")
-def catalog():    
+def catalog():
+    try:
+        blobs = cc.list_blobs()    
     #Continue Code here
+    except Exception as e:
+        return jsonify({
+            "ok": False,
+            "error": str(e)
+        }), 500
 
 @app.get("/api/health")
 def health():
