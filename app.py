@@ -16,17 +16,17 @@ cc  = bsc.get_container_client(CONTAINER_NAME)
 def homepage():
     return render_template("index.html")
 
-@app.post("/api/v1/upload")
+@app.post("/api/upload")
 def upload():
     if "file" not in request.files:
         return jsonify(ok=False, error="No file part in request"), 400
     #Continue Code here
 
-@app.get("/api/v1/catalog")
+@app.get("/api/catalog")
 def catalog():    
     #Continue Code here
 
-@app.get("/api/v1/health")
+@app.get("/api/health")
 def health():
     return jsonify(status="ok"), 200
 
