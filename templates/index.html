@@ -13,10 +13,32 @@
         <!--PUT STUFF-->
     </header>
     <main>
+        <section class="Uploading">
+            <h3>Upload A MP4</h3>
+            <div class="note">
+                (Credentials May be Required).
+            </div>
+            <div class="controls">
+                <input type="file" id="f" accept="video/*" />
+                <button id="uploadBtn" onclick="send()">Upload</button>
+                <button class="secondary" onclick="document.getElementById('f').value='';">Reset</button>
+                <span id="uploadStatus" class="muted" aria-live="polite"></span>
+            </div>
+        </section>
         <!--PUT STUFF-->
     </main>
-    <footer> Althvinhaim Video Platform </footer>
+    <footer> Althvinhaim/Vynndalia Video Platform </footer>
     <script>
+        const upBtn = document.getElementById('uploadBtn');
+        const upStat = document.getElementById('uploadStatus');
+
+        function setUploading(isUploading){ <!--Define IsUploading in a later send Function-->
+        upBtn.disabled = isUploading;
+        upStat.textContent = isUploading ? "Uploading! Be Patient… " : "";
+        if(isUploading){
+            upStat.innerHTML = '<span class="spinner" style="vertical-align:-3px"></span> Uploading…'; <!--Set up spinner class-->
+        }
+        }
         /* Put JavaScript here*/
     </script>
 </body>
