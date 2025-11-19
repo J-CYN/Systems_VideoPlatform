@@ -92,6 +92,15 @@
             padding:1.25rem 0; 
             font-weight: bold; 
         }
+
+        .dash{
+            background:#cbd5e1; 
+            border:1px solid hsla(0, 100%, 19%, 1.00); 
+            border-radius:14px;
+            padding:1rem; 
+            box-shadow:0 2px 12px rgba(37, 37, 37, 1); 
+            margin-bottom:1rem;
+        }
     </style>
     <script src="../js/main.js" defer></script>
 </head>
@@ -99,6 +108,18 @@
     <h1> Video Dashboard </h1>
 </header>
 <body>
+    <section class="dash">
+      <div class="row" style="justify-content:space-between">
+        <h3 style="margin:0">Current Catalog</h3>
+        <div class="row muted">
+          <span id="count">0 videos</span>
+          <button class="secondary" onclick="loadGallery()" title="Refresh dashboard">Refresh</button>
+        </div>
+      </div>
+      <div id="dashNote" class="note" style="display:none"></div>
+      <div id="grid" class="grid" aria-live="polite">
+      </div>
+    </section>
     <button onclick="window.location.href='index.html'">Head To Upload Page</button>
 </body>
 </html>
