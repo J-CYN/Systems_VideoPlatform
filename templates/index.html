@@ -5,18 +5,99 @@
     <title>Althvinhaim Video Platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-        /* Put Stuff Inside */
+        *{box-sizing:border-box}
+        body{
+        margin:0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica;
+        background: #D3D3D3;
+        }
+
+        header{
+            background:hsla(0, 100%, 19%, 1.00);
+            color:#D3D3D3;
+            padding:1rem 1.25rem;
+            display:flex; 
+            align-items:center; 
+            justify-content:space-between;
+        }
+        
+        main{ max-width:980px; margin:1rem auto; padding:0 1rem; }
+
+
+        .note{
+            background:#fff7ed; 
+            border:1px solid #fed7aa; 
+            color:#7c2d12;
+            padding:.5rem .8rem; 
+            border-radius:10px; 
+            margin:.5rem 0;
+            max-width: 316px;
+        }
+
+        h1{ 
+            color: #D3D3D3; margin:.2rem 0 .6rem }
+
+        h2,h3{ 
+            color: hsla(0, 100%, 19%, 1.00); 
+            margin:.2rem 0 .6rem }
+
+        .controls{ 
+            display:flex; 
+            flex-wrap:wrap; 
+            gap:.6rem; 
+            align-items:center 
+        }
+        input[type=file]{ 
+            padding:.4rem; 
+            border:2px solid hsla(0, 100%, 19%, 1.00); 
+            border-radius:10px; 
+            background:#fff; 
+        }
+        button{
+            background:hsla(0, 100%, 19%, 1.00); 
+            color:rgba(255, 255, 255, 1); 
+            border:1px solid rgba(255, 255, 255, 1);
+            padding:.6rem 1rem; 
+            border-radius:10px; 
+            font-weight:600; 
+            cursor:pointer;
+            margin-top: 2px;
+        }
+        button.secondary{ 
+            background: hsla(0, 100%, 19%, 1.00); 
+            color:rgba(255, 255, 255, 1) 
+        }
+        
+        #dashbut{
+            margin-top: 10px;
+        }
+
+        .spinner{ 
+            display:inline-block; 
+            width:18px; 
+            height:18px; 
+            border:2px solid #cbd5e1; 
+            border-top-color: hsla(0, 100%, 19%, 1.00); border-radius:50%; animation:spin 0.8s linear infinite }
+        @keyframes spin{ to{ transform:rotate(360deg) } }
+
+        footer{ 
+            text-align:center; 
+            color: hsla(0, 100%, 19%, 1.00); 
+            padding:1.25rem 0; 
+            font-weight: bold; 
+        }
     </style>
+    <script src="../js/main.js" defer></script>
 </head>
 <body>
     <header>
-        <!--PUT STUFF-->
+        <h1> Welcome Althvinhaimers!</h1>
     </header>
     <main>
         <section class="Uploading">
             <h3>Upload A MP4</h3>
             <div class="note">
-                (Credentials May be Required).
+                (Credentials May be Required To Upload)
             </div>
             <div class="controls">
                 <input type="file" id="f" accept="video/*" />
@@ -25,21 +106,9 @@
                 <span id="uploadStatus" class="muted" aria-live="polite"></span>
             </div>
         </section>
+        <button id="dashbut" onclick="window.location.href='dashboard.html'">Head To Dashboard</button>
         <!--PUT STUFF-->
     </main>
-    <footer> Althvinhaim/Vynndalia Video Platform </footer>
-    <script>
-        const upBtn = document.getElementById('uploadBtn');
-        const upStat = document.getElementById('uploadStatus');
-
-        function setUploading(isUploading){ <!--Define IsUploading in a later send Function-->
-        upBtn.disabled = isUploading;
-        upStat.textContent = isUploading ? "Uploading! Be Patient… " : "";
-        if(isUploading){
-            upStat.innerHTML = '<span class="spinner" style="vertical-align:-3px"></span> Uploading…'; <!--Set up spinner class-->
-        }
-        }
-        /* Put JavaScript here*/
-    </script>
+    <footer> Althvinhaim Video Platform </footer>
 </body>
 </html>
