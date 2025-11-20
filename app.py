@@ -26,7 +26,7 @@ def upload():
         return jsonify(ok=False, error="No selected file"), 40
     timestamp = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
     safe_filename = sanitize_filename(f.filename)
-    #blob_name = f"{timestamp}-{safe_filename}"
+    blob_name = f"{timestamp}-{safe_filename}"
     try:
         cc.upload_blob(name=blob_name, data=f, overwrite=True)
         file_url = f"{cc.url}/{blob_name}"
@@ -57,13 +57,12 @@ def catalog():
 def health():
     return jsonify(status="ok"), 200
 
-"""
+
 def sanitize_filename(filename):
-    # Remove any path separators and unsafe characters
     filename = os.path.basename(filename)
     filename = re.sub(r'[^A-Za-z0-9._-]', '_', filename)
     return filename
-"""
+
 
 #if __name__ == "__main__":
 #    app.run(host="0.0.0.0", port=8080)
