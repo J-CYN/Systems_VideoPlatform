@@ -87,6 +87,5 @@ async function loadGallery(){
     }
 }
 
-
 document.addEventListener("DOMContentLoaded", loadGallery);
 

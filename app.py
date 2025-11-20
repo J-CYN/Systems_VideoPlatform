@@ -24,17 +24,29 @@ def upload():
     f = request.files["file"]
     if f.filename == "":
         return jsonify(ok=False, error="No selected file"), 40
-    #Continue Code here
+    timestamp = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
+    safe_filename = sanitize_filename(f.filename)
+    #blob_name = f"{timestamp}-{safe_filename}"
     try:
-        #Continue Code here
+        cc.upload_blob(name=blob_name, data=f, overwrite=True)
+        file_url = f"{cc.url}/{blob_name}"
+        return jsonify(ok=True, url=file_url), 200
     except Exception as e:
         return jsonify(ok=False, error=str(e)), 500
 
 @app.get("/api/catalog")
 def catalog():
     try:
-        blobs = cc.list_blobs()    
-    #Continue Code here
+        blobs = cc.list_blobs()
+        gallery_urls = [
+            f"https://{bsc.account_name}.blob.core.windows.net/{CONTAINER_NAME}/{blob.name}"
+            for blob in blobs
+        ]
+
+        return jsonify({
+            "ok": True,
+            "gallery": gallery_urls
+        }), 200    
     except Exception as e:
         return jsonify({
             "ok": False,
@@ -46,9 +58,11 @@ def health():
     return jsonify(status="ok"), 200
 
 """
-@app.get("/api/watch")
-def catalog():    
-    #Continue Code here
+def sanitize_filename(filename):
+    # Remove any path separators and unsafe characters
+    filename = os.path.basename(filename)
+    filename = re.sub(r'[^A-Za-z0-9._-]', '_', filename)
+    return filename
 """
 
 #if __name__ == "__main__":
