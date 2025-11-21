@@ -106,7 +106,6 @@
             margin: 0 auto;
         }
     </style>
-    <script src="../js/main.js" defer></script>
 </head>
 <header>
     <h1> Video Dashboard </h1>
@@ -125,5 +124,6 @@
       </div>
     </section>
     <button id="ReturnToUpload" onclick="window.location.href='/'">Head To Upload Page</button>
+    <script src="{{ url_for('static', filename='main.js') }}" defer></script>
 </body>
 </html>

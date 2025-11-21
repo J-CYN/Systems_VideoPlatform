@@ -92,7 +92,6 @@
             font-weight: bold; 
         }
     </style>
-    <script src="../js/main.js" defer></script>
 </head>
 <body>
     <header>
@@ -114,5 +113,6 @@
         <button id="dashbut" onclick="window.location.href='/dashboard'">Head To Dashboard</button>
     </main>
     <footer> Althvinhaim Video Platform </footer>
+    <script src="{{ url_for('static', filename='main.js') }}" defer></script>
 </body>
 </html>
