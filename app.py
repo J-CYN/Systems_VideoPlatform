@@ -7,7 +7,7 @@ from azure.storage.blob import BlobServiceClient
 
 app = Flask(__name__)
 
-CONTAINER_NAME="videostoragefinal"
+CONTAINER_NAME="videocatalog"
 
 bsc = BlobServiceClient.from_connection_string(os.getenv("AZURE_STORAGE_CONNECTION_STRING"))
 cc  = bsc.get_container_client(CONTAINER_NAME)
