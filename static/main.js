@@ -4,11 +4,11 @@ const grid = document.getElementById('grid');
 const countEl = document.getElementById('count');
 const noteEl  = document.getElementById('dashNote');
 
-function setUploading(isUploading){ //Define IsUploading in a later send Function
+function setUploading(isUploading){ 
     upBtn.disabled = isUploading;
     upStat.textContent = isUploading ? "Uploading! Be Patient… " : "";
     if(isUploading){
-        upStat.innerHTML = '<span class="spinner" style="vertical-align:-3px"></span> Uploading…'; //Set up spinner class
+        upStat.innerHTML = '<span class="spinner" style="vertical-align:-3px"></span> Uploading…'; 
     }
 }
 

@@ -7,7 +7,7 @@ from azure.storage.blob import BlobServiceClient
 
 app = Flask(__name__)
 
-CONTAINER_NAME="video_catalog"
+CONTAINER_NAME="videostoragefinal"
 
 bsc = BlobServiceClient.from_connection_string(os.getenv("AZURE_STORAGE_CONNECTION_STRING"))
 cc  = bsc.get_container_client(CONTAINER_NAME)
@@ -15,6 +15,10 @@ cc  = bsc.get_container_client(CONTAINER_NAME)
 @app.get("/")
 def homepage():
     return render_template("index.html")
+
+@app.get("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
 
 @app.post("/api/upload")
 def upload():
@@ -64,5 +68,5 @@ def sanitize_filename(filename):
     return filename
 
 
-#if __name__ == "__main__":
-#    app.run(host="0.0.0.0", port=8080)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
