@@ -11,7 +11,7 @@ app = Flask(__name__)
 CORS(app,
      resources={r"/*": {"origins": [
          "http://localhost:8080",
-         "https://BlahBlah.onrender.com"#I will change this later when I host on Render
+         "https://systems-videoplatform.onrender.com"#I will change this later when I host on Render
      ]}},
      supports_credentials=True)
 
