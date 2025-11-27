@@ -4,8 +4,16 @@ import os
 import re
 from datetime import datetime
 from azure.storage.blob import BlobServiceClient
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+CORS(app,
+     resources={r"/*": {"origins": [
+         "http://localhost:8080",
+         "https://BlahBlah.onrender.com"#I will change this later when I host on Render
+     ]}},
+     supports_credentials=True)
 
 CONTAINER_NAME="videocatalog"
 
@@ -27,7 +35,7 @@ def upload():
     
     f = request.files["file"]
     if f.filename == "":
-        return jsonify(ok=False, error="No selected file"), 40
+        return jsonify(ok=False, error="No selected file"), 400
     timestamp = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
     safe_filename = sanitize_filename(f.filename)
     blob_name = f"{timestamp}-{safe_filename}"
@@ -67,6 +75,3 @@ def sanitize_filename(filename):
     filename = re.sub(r'[^A-Za-z0-9._-]', '_', filename)
     return filename
 
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
