@@ -38,6 +38,7 @@ async function send(){
 }
 
 function renderGallery(urls){
+    if (!grid) return;
     grid.innerHTML = "";
     if(!Array.isArray(urls) || urls.length === 0){
         countEl.textContent = "0 videos";
@@ -70,6 +71,7 @@ function renderGallery(urls){
 }
 
 async function loadGallery(){
+    if (!grid) return;
     grid.innerHTML = '<div class="muted" style="padding:.5rem 0;"><span class="spinner"></span> Loading gallery…</div>';
     try{
         const r = await fetch("/api/catalog", { headers: { "Accept": "application/json" }});
@@ -87,5 +89,7 @@ async function loadGallery(){
     }
 }
 
-document.addEventListener("DOMContentLoaded", loadGallery);
+if (document.getElementById("grid")) {
+    document.addEventListener("DOMContentLoaded", loadGallery);
+}
 
