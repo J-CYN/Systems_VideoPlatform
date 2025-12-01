@@ -11,7 +11,7 @@ UI have made a website that hosts and plays MP4 videos which are stored in the A
 
 Architecture Diagram:
 
-![ArchDiagram](assets/SysArch.png)
+![ArchDiagram](assets/SysArch.drawio.png)
 
 Data/Models/Services: 
 
