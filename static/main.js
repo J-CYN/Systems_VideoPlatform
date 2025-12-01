@@ -25,7 +25,6 @@ async function send(){
         if(!r.ok || !j.ok){
           throw new Error(j.error || ("Upload failed (" + r.status + ")"));
         }
-        // Success: show URL and refresh the gallery without full page reload
         alert("Uploaded: " + j.url);
         fileInput.value = "";
         await loadGallery();
