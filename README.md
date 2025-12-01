@@ -19,7 +19,7 @@ The data uploaded are mp4 versions of Youtube videos that me and my friends have
  
  No models are in use by the application. The application uses Azure Blob Storage and the cloud hosted application is using Render.com to host itself. For the license check the LICENSE.md file.
 
-1) How to Run (Local)
+3) How to Run (Local)
 
 Run the following individual commands in your terminal(This requires the .env file which holds environmental variables):
 
