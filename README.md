@@ -9,7 +9,9 @@ Course Concepts:
 
 UI have made a website that hosts and plays MP4 videos which are stored in the Azure Blob Storage using a backend which communicates between the frontend and the servers using Flask API. This stores the mp4 videos which will be pulled in the dashboard page when users refresh or enter the site.
 
-Architecture Diagram: NOT DONE
+Architecture Diagram:
+
+![ArchDiagram](assets/SysArch.png)
 
 Data/Models/Services: 
 
@@ -17,7 +19,7 @@ The data uploaded are mp4 versions of Youtube videos that me and my friends have
  
  No models are in use by the application. The application uses Azure Blob Storage and the cloud hosted application is using Render.com to host itself. For the license check the LICENSE.md file.
 
-3) How to Run (Local)
+1) How to Run (Local)
 
 Run the following individual commands in your terminal(This requires the .env file which holds environmental variables):
 
