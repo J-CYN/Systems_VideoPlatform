@@ -13,9 +13,7 @@ Architecture Diagram: NOT DONE
 
 Data/Models/Services: 
 
-The data uploaded are mp4 versions of Youtube videos that me and my friends have uploaded that can be seen in the assets as "Althvinhaim_Community.mp4", a 2472 kb mp4 file.
-and 
-"Althvinhaim_Intro.mp4", a 3971 kb mp4 file.
+The data uploaded are mp4 versions of Youtube videos that me and my friends have uploaded that can be seen in the assets as "Althvinhaim_Community.mp4", a 2472 kb mp4 file, and "Althvinhaim_Intro.mp4", a 3971 kb mp4 file.
  
  No models are in use by the application. The application uses Azure Blob Storage and the cloud hosted application is using Render.com to host itself. For the license check the LICENSE.md file.
 
@@ -36,7 +34,7 @@ I chose this approach because tools such as Azure Blob Storage and FlaskAPI were
 
 Tradeoffs:
 
-These choices have allowed for a level of maintainability. FlaskAPI is very readable and serves as the backend of the application with relatively few lines to maintain. Blob Storage is relatively cheap, even for videos, which can easily store the files for this project to a larger scale into the future without having to change the code. However, the current application runs on the Render free tier which limits the size of MP4s to be uploaded. This can easily be changed with an upgrade to my subscription, so it isn't too much trouble on that front either.
+These choices have allowed for a level of maintainability. FlaskAPI is very readable and serves as the backend of the application with relatively few lines to maintain. Blob Storage is relatively cheap, even for videos, which can easily store the files for this project to a larger scale into the future without having to change the code. However, the current application runs on the Render free tier which limits the size of MP4s to be uploaded since it often times out after processing for a while. This can easily be changed with an upgrade to my subscription, so it isn't too much trouble on that front either.
 
 Security/Privacy: 
 
@@ -45,7 +43,7 @@ Personal information of users is not stored or accessed. My Azure connection str
 Ops:
 
 As can be seen, the bandwidth usage is within reason.
-![BandwidthUsage](assets\ResourceUsage.png)
+![BandwidthUsage](assets/ResourceUsage.png)
 
 I am not aware of any errors within the application and everything works to expectation according to current testing.
 
@@ -55,7 +53,12 @@ The greatest limitation is mp4 videos of considerable length, such as over two h
 
 5) Results & Evaluation
 
-Screenshots or sample outputs (place assets in /assets): NOT DONE
+Screenshots or sample outputs (place assets in /assets):
+
+![Upload](assets/UploadScreen.png)
+![Alert](assets/UploadConfirm.png)
+![Dash](assets/DashboardScreen.png)
+![Store](assets/AzureStore.png)
 
 Brief performance notes or resource footprint (if relevant): 
 
