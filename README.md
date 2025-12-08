@@ -24,6 +24,7 @@ The data uploaded are mp4 versions of Youtube videos that me and my friends have
 Run the following individual commands in your terminal(This requires the .env file which holds environmental variables):
 
 docker build -t myapp:latest .
+
 docker run --rm -p 8080:8080 --env-file .env myapp:latest
 
 Then, if the docker container was created successfully, access it at http://localhost:8080/
